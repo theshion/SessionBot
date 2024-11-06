@@ -1,10 +1,10 @@
-from SessionBot.Plugins.Buttons import buttons
+from SessionBot.Plugins.inline import key
+from Database import add_user
 from pyrogram import Client as xemishra, filters
 from pyrogram.types import InlineKeyboardMarkup
 
 @xemishra.on_message(filters.command("start"))
 def start(client, message):
-  chat_id = message.chat.id
   user_mention = message.from_user.mention
   text = f"""
 𝖧𝖾𝗒 {user_mention} 🇮🇳
@@ -17,8 +17,9 @@ def start(client, message):
   
 𝖥𝗈𝗋 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝗌𝖾𝗌𝗌𝗂𝗈𝗇 𝖢𝗅𝗂𝖼𝗄 𝖮𝗇 "𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝖾 𝖲𝖾𝗌𝗌𝗂𝗈𝗇" 𝖡𝗎𝗍𝗍𝗈𝗇 𝖡𝖾𝗅𝗈𝗐!
   """
-   await client.send_message(
-        chat_id,
-        text,
-        reply_markup=InlineKeyboardMarkup(buttons)
-   )
+   await message.reply_text(
+        text=text,
+        reply_markup=key,
+        disable_web_page_preview=True,
+    )
+    await add_user(message.from_user.id)
