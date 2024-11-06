@@ -6,7 +6,6 @@ from pyrogram.types import InlineKeyboardMarkup, Message
 def start(client, message):
   chat_id = message.chat.id
   user_mention = message.from_user.mention
-  x = client.get_me()
   text = f"""
 𝖧𝖾𝗒 {user_mention} 🇮🇳
 
