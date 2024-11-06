@@ -1,6 +1,6 @@
 from SessionBot.Plugins.Buttons import buttons
 from pyrogram import Client as xemishra, filters
-from pyrogram.types import InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardMarkup
 
 @xemishra.on_message(filters.command("start"))
 def start(client, message):
