@@ -19,5 +19,5 @@ LOGGER_ID = int(os.getenv("LOGGER_ID", "")) # get it by creating a logs group on
 OWNER_ID int(os.getenv("OWNER_ID", "")) # flll here your bot owner telegram account id.
 
 #Extra 
-SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/xemishra")
-UPDATES_CHANNEL = os.getenv("UPDATES_CHANNEL", "https://t.me/xemishra")
+SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/xemishra") # fill here your bot support group link 
+UPDATES_CHANNEL = os.getenv("UPDATES_CHANNEL", "https://t.me/xemishra") # fill here your updates channel link here 
