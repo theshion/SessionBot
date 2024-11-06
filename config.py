@@ -14,6 +14,10 @@ BOT_TOKEN = os.getenv("BOT_TOKEN", "") # get it from @BotFather on telegram by c
 #Database
 MONGODB_URI = os.getenv("MONGODB_URI", "") # get it from mongodb.com and fill here.
 
-# Owner
+#Owner
 LOGGER_ID = int(os.getenv("LOGGER_ID", "")) # get it by creating a logs group on telegram.
 OWNER_ID int(os.getenv("OWNER_ID", "")) # flll here your bot owner telegram account id.
+
+#Extra 
+SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/xemishra")
+UPDATES_CHANNEL = os.getenv("UPDATES_CHANNEL", "https://t.me/xemishra")
