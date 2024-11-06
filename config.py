@@ -1,14 +1,19 @@
 import os
 from dotenv import load_dotenv
 
+# To load all env vars
 load_dotenv()
 
-API_ID = int(os.getenv("API_ID", ""))
-API_HASH = os.getenv("API_HASH", "")
+#Apis 
+API_ID = int(os.getenv("API_ID", "")) # get it from my.telegram.org and fill here.
+API_HASH = os.getenv("API_HASH", "") # get it from my.telegram.org and fill here.
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+#Tokens
+BOT_TOKEN = os.getenv("BOT_TOKEN", "") # get it from @BotFather on telegram by creating a new bot and fill here that bot token.
 
-MONGODB_URI = os.getenv("MONGODB_URI", "")
+#Database
+MONGODB_URI = os.getenv("MONGODB_URI", "") # get it from mongodb.com and fill here.
 
-LOGGER_ID = int(os.getenv("LOGGER_ID", ""))
-OWNER_ID int(os.getenv("OWNER_ID", ""))
+# Owner
+LOGGER_ID = int(os.getenv("LOGGER_ID", "")) # get it by creating a logs group on telegram.
+OWNER_ID int(os.getenv("OWNER_ID", "")) # flll here your bot owner telegram account id.
