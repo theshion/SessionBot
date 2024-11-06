@@ -1,0 +1,5 @@
+pyrogram==2.*
+TgCrypto==1.*
+pyromod==1.5
+Telethon==1.*
+python-dotenv==0.*
