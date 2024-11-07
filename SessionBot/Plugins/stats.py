@@ -1,4 +1,5 @@
-from pyrogram import Client as xemishra, filters
+from pyrogram import Client, filters
+from SessionBot import xemishra
 from SessionBot import OWNER_ID
 from Database.users import get_users
 
