@@ -8,12 +8,12 @@ async def install():
     try:
         await xemishra.start()
     except Exception as ex:
-        LOGGER.error(ex)
+        print(ex)
         quit(1)
     for all_module in ALL_MODULES:
         importlib.import_module("SessionBot.Plugins." + all_module)
 
-    LOGGER.info(f"@{xemishra.username} Started.")
+    print(f"@{xemishra.username} Started.")
     await idle()
 
 if __name__ == "__main__":
