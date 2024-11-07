@@ -1,6 +1,7 @@
 from SessionBot.Plugins.inline import key
 from Database.users import add_user
-from pyrogram import Client as xemishra, filters
+from pyrogram import Client, filters
+from SessionBot import xemishra
 from pyrogram.types import InlineKeyboardMarkup
 
 @xemishra.on_message(filters.command("start"))
