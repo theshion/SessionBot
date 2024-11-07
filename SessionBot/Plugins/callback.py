@@ -2,8 +2,9 @@ from pyrogram import filters, Client
 from pyrogram.types import CallbackQuery
 from SessionBot.Plugins.inline import gen_key
 from SessionBot.Plugins.generate import gen_session
+from SessionBot import xemishra
 
-@Client.on_callback_query(
+@xemishra.on_callback_query(
     filters.regex(pattern=r"^(gensession|pyrogram|pyrogram1|telethon)$")
 )
 async def cb_choose(_, cq: CallbackQuery):
