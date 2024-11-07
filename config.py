@@ -16,7 +16,7 @@ MONGODB_URI = os.getenv("MONGODB_URI", "mongodb+srv://xemishra:3z8blpvVeMcKoZHs@
 
 #Owner
 LOGGER_ID = int(os.getenv("LOGGER_ID", "7644065212")) # get it by creating a logs group on telegram.
-OWNER_ID int(os.getenv("OWNER_ID", "7644065212")) # flll here your bot owner telegram account id.
+OWNER_ID = int(os.getenv("OWNER_ID", "7644065212")) # flll here your bot owner telegram account id.
 
 #Extra 
 SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/xemishra") # fill here your bot support group link 
