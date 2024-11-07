@@ -17,9 +17,9 @@ async def start(client, message):
   
 𝖥𝗈𝗋 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝗌𝖾𝗌𝗌𝗂𝗈𝗇 𝖢𝗅𝗂𝖼𝗄 𝖮𝗇 "𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝖾 𝖲𝖾𝗌𝗌𝗂𝗈𝗇" 𝖡𝗎𝗍𝗍𝗈𝗇 𝖡𝖾𝗅𝗈𝗐!
   """
-   await message.reply_text(
+  await message.reply_text(
         text=text,
         reply_markup=key,
         disable_web_page_preview=True,
     )
-   await add_user(message.from_user.id)
+  await add_user(message.from_user.id)
