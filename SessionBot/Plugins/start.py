@@ -22,4 +22,4 @@ def start(client, message):
         reply_markup=key,
         disable_web_page_preview=True,
     )
-    await add_user(message.from_user.id)
+   await add_user(message.from_user.id)
