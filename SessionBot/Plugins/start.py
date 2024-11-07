@@ -1,5 +1,5 @@
 from SessionBot.Plugins.inline import key
-from Database import add_user
+from Database.users import add_user
 from pyrogram import Client as xemishra, filters
 from pyrogram.types import InlineKeyboardMarkup
 
