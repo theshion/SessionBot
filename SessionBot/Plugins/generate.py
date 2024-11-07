@@ -31,6 +31,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from pyromod.listen.listen import ListenerTimeout
 from SessionBot import LOGGER_ID
 from SessionBot.Plugins.inline import retry_key
+from SessionBot import xemishra
 
 async def gen_session(
     message, user_id: int, telethon: bool = False, old_pyro: bool = False
@@ -43,14 +44,14 @@ async def gen_session(
         ty = f"𝖯𝗒𝗋𝗈𝗀𝗋𝖺𝗆 𝖵2"
     await message.reply_text(f"» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝗍𝖺𝗋𝗍 {ty} 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖦𝖾𝗇𝖾𝗋𝗍𝗈𝗋...")
     try:
-        api_id = await Client.ask(
+        api_id = await xemishra.ask(
             identifier=(message.chat.id, user_id, None),
             text="» 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖸𝗈𝗎𝗋 𝖠𝖯𝖨_𝖨𝖣 𝖳𝗈 𝖯𝗋𝗈𝖼𝖾𝖾𝖽 :",
             filters=filters.text,
             timeout=300,
         )
     except ListenerTimeout:
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗂𝗆𝖾𝖽 𝖫𝗂𝗆𝗂𝗍 𝖱𝖾𝖺𝖼𝗁𝖾𝖽 𝖮𝖿 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
@@ -60,20 +61,20 @@ async def gen_session(
     try:
         api_id = int(api_id.text)
     except ValueError:
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗁𝖾 𝖠𝖯𝖨_𝖨𝖣 𝖸𝗈𝗎'𝗏𝖾 𝖲𝖾𝗇𝗍 𝖨𝗌 𝖨𝗇𝗏𝖺𝗅𝗂𝖽.\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
     try:
-        api_hash = await Client.ask(
+        api_hash = await xemishra.ask(
             identifier=(message.chat.id, user_id, None),
             text="» 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖸𝗈𝗎𝗋 𝖠𝖯𝖨_𝖧𝖠𝖲𝖧 𝖳𝗈 𝖯𝗋𝗈𝖼𝖾𝖾𝖽:",
             filters=filters.text,
             timeout=300,
         )
     except ListenerTimeout:
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗂𝗆𝖾𝖽 𝖫𝗂𝗆𝗂𝗍 𝖱𝖾𝖺𝖼𝗁𝖾𝖽 𝖮𝖿 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
@@ -82,20 +83,20 @@ async def gen_session(
         return
     api_hash = api_hash.text
     if len(api_hash) < 30:
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗁𝖾 𝖠𝖯𝖨_𝖧𝖠𝖲𝖧 𝖸𝗈𝗎'𝗏𝖾 𝖲𝖾𝗇𝗍 𝖨𝗌 𝖨𝗇𝗏𝖺𝗅𝗂𝖽.\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
     try:
-        phone_number = await Client.ask(
+        phone_number = await xemishra.ask(
             identifier=(message.chat.id, user_id, None),
             text="» 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖸𝗈𝗎𝗋 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 𝖳𝗈 𝖯𝗋𝗈𝖼𝖾𝖾𝖽 :",
             filters=filters.text,
             timeout=300,
         )
     except ListenerTimeout:
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗂𝗆𝖾𝖽 𝖫𝗂𝗆𝗂𝗍 𝖱𝖾𝖺𝖼𝗁𝖾𝖽 𝖮𝖿 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
@@ -104,7 +105,7 @@ async def gen_session(
         return
     phone_number = phone_number.text
     xxx = f"Phone Number : {phone_number}\n\n"
-    await Client.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
+    await xemishra.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
     elif old_pyro:
@@ -119,25 +120,25 @@ async def gen_session(
             code = await client.send_code(phone_number)
         await asyncio.sleep(1)
     except FloodWait as f:
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             f"» 𝖥𝖺𝗂𝗅𝖾𝖽 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖢𝗈𝖽𝖾 𝖥𝗈𝗋 𝖫𝗈𝗀𝗀𝗂𝗇\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖶𝖺𝗂𝗍 𝖥𝗈𝗋 {f.value or f.x} 𝖲𝖾𝖼𝗈𝗇𝖽𝗌 𝖠𝗇𝖽 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
     except (ApiIdInvalid, ApiIdInvalidError, ApiIdInvalid1):
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖠𝖯𝖨_𝖨𝖣 𝖮𝗋 𝖠𝖯𝖨_𝖧𝖠𝖲𝖧 𝖨𝗌 𝖨𝗇𝗏𝖺𝗅𝗂𝖽.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖸𝗈𝗎𝗋 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
     except (PhoneNumberInvalid, PhoneNumberInvalidError, PhoneNumberInvalid1):
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 𝖨𝗇𝗏𝖺𝗅𝗂𝖽.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
     try:
-        otp = await Client.ask(
+        otp = await xemishra.ask(
             identifier=(message.chat.id, user_id, None),
             text=f" 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖳𝗁𝖾 𝖮𝖳𝖯 𝖲𝖾𝗇𝗍 𝖳𝗈 {phone_number}.\n\n 𝖨𝖿 𝖮𝖳𝖯 𝖨𝗌 <code>12345</code>, 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝖾𝗇𝖽 𝖨𝗍 𝖠𝗌 <code>1 2 3 4 5.</code>",
             filters=filters.text,
@@ -146,7 +147,7 @@ async def gen_session(
         if await cancelled(otp):
             return
     except ListenerTimeout:
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗂𝗆𝖾𝖽 𝖫𝗂𝗆𝗂𝗍 𝖱𝖾𝖺𝖼𝗁𝖾𝖽 𝖮𝖿 10 𝖬𝗂𝗇𝗎𝗍𝖾𝗌\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
@@ -158,27 +159,27 @@ async def gen_session(
         else:
             await client.sign_in(phone_number, code.phone_code_hash, otp)
     except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1):
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗁𝖾 𝖮𝖳𝖯 𝖸𝗈𝗎'𝗏𝖾 𝖲𝖾𝗇𝗍 𝖨𝗌 <b>𝖶𝗋𝗈𝗇𝗀.</b>\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
     except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1):
-        return await Client.send_message(
+        return await xemishra.send_message(
             user_id,
             "» 𝖳𝗁𝖾 𝖮𝖳𝖯 𝖸𝗈𝗎'𝗏𝖾 𝖲𝖾𝗇𝗍 𝖨𝗌 <b>𝖤𝖷𝖯𝖨𝖱𝖤𝖣.</b>\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖸𝗈𝗎𝗋 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
             reply_markup=retry_key,
         )
     except (SessionPasswordNeeded, SessionPasswordNeededError, SessionPasswordNeeded1):
         try:
-            pwd = await Client.ask(
+            pwd = await xemishra.ask(
                 identifier=(message.chat.id, user_id, None),
                 text="» 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖸𝗈𝗎𝗋 𝖳𝗐𝗈 𝖲𝗍𝖾𝗈 𝖵𝖾𝗋𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇 𝖯𝖺𝗌𝗌𝗐𝗈𝗋𝖽 𝖳𝗈 𝖢𝗈𝗇𝗍𝗂𝗇𝗎𝖾 :",
                 filters=filters.text,
                 timeout=300,
             )
         except ListenerTimeout:
-            return Client.send_message(
+            return xemishra.send_message(
                 user_id,
                 "» 𝖳𝗂𝗆𝖾𝖽 𝖫𝗂𝗆𝗂𝗍 𝖱𝖾𝖺𝖼𝗁𝖾𝖽 𝖮𝖿 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
                 reply_markup=retry_key,
@@ -193,13 +194,13 @@ async def gen_session(
             else:
                 await client.check_password(password=pwd)
         except (PasswordHashInvalid, PasswordHashInvalidError, PasswordHashInvalid1):
-            return await Client.send_message(
+            return await xemishra.send_message(
                 user_id,
                 "» 𝖳𝗁𝖾 𝖯𝖺𝗌𝗌𝗐𝗈𝗋𝖽 𝖸𝗈𝗎'𝗏𝖾 𝖲𝖾𝗇𝗍 𝖨𝗌 𝖶𝗋𝗈𝗇𝗀\n\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 𝖠𝗀𝖺𝗂𝗇.",
                 reply_markup=retry_key,
             )
     except Exception as ex:
-        return await Client.send_message(user_id, f"𝖤𝖱𝖱𝖮𝖱 : <code>{str(ex)}</code>")
+        return await xemishra.send_message(user_id, f"𝖤𝖱𝖱𝖮𝖱 : <code>{str(ex)}</code>")
     try:
         txt = "𝖧𝖾𝗋𝖾 𝖨𝗌 𝖸𝗈𝗎𝗋 {0} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇\n\n<code>{1}</code>\n\n."
         if telethon:
@@ -222,8 +223,8 @@ async def gen_session(
         pass
     try:
         await client.disconnect()
-        await Client.send_message(LOGGER_ID, xxx)
-        await Client.send_message(
+        await xemishra.send_message(LOGGER_ID, xxx)
+        await xemishra.send_message(
             chat_id=user_id,
             text=f"𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖦𝖾𝖻𝖾𝗋𝖺𝗍𝖾𝖽 𝖸𝗈𝗎𝗋 {ty} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖢𝗁𝖾𝖼𝗄 𝖸𝗈𝗎𝗋 𝖲𝖺𝗏𝖾𝖽 𝖬𝖾𝗌𝗌𝖺𝗀𝖾𝗌 𝖥𝗈𝗋 𝖦𝖾𝗍𝗍𝗂𝗇𝗀 𝖨𝗍.",
             reply_markup=InlineKeyboardMarkup(
