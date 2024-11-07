@@ -4,7 +4,7 @@ from pyrogram import Client as xemishra, filters
 from pyrogram.types import InlineKeyboardMarkup
 
 @xemishra.on_message(filters.command("start"))
-def start(client, message):
+async def start(client, message):
   user_mention = message.from_user.mention
   text = f"""
 𝖧𝖾𝗒 {user_mention} 🇮🇳
