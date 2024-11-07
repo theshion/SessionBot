@@ -13,7 +13,7 @@ async def install():
     for all_module in ALL_MODULES:
         importlib.import_module("SessionBot.Plugins." + all_module)
 
-    print(f"@{xemishra.username} Started.")
+    print(f"Started!!")
     await idle()
 
 if __name__ == "__main__":
