@@ -13,9 +13,9 @@ async def install():
     for all_module in ALL_MODULES:
         importlib.import_module("SessionBot.Plugins." + all_module)
 
-    print(f"Started!!")
+    print(f"Successfully Started Your Session Bot !!")
     await idle()
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(install())
-    LOGGER.info("Stopping String Gen Bot...")
+    LOGGER.info("Stopping Session Bot...")
