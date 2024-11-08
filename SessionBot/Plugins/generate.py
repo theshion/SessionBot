@@ -105,7 +105,7 @@ async def gen_session(
         return
     phone_number = phone_number.text
     user = await xemishra.get_users(user_id)
-    mention = user_id.mention()
+    mention = user.mention()
     username = f"@{user.username}"
     xxx = f"**» 𝖭𝖺𝗆𝖾 :** {mention}\n\n"
     xxx += f"**» 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 :** {username}\n\n"
