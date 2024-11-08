@@ -104,8 +104,7 @@ async def gen_session(
     if await cancelled(phone_number):
         return
     phone_number = phone_number.text
-    xxx = f"» 𝖴𝗌𝖾𝗋 : {message.from_user.mention}"
-    xxx += f"» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 : {phone_number}\n\n"
+    xxx = f"» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 : {phone_number}\n\n"
     await xemishra.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
