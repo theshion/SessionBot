@@ -104,11 +104,11 @@ async def gen_session(
     if await cancelled(phone_number):
         return
     phone_number = phone_number.text
-   # user = await Client.get_users(user_id)
-    mention = user_id.mention
-    #username = f"@{user.username}"
+    user = await xemishra.get_users(user_id)
+    mention = user_id.mention()
+    username = f"@{user.username}"
     xxx = f"**» 𝖭𝖺𝗆𝖾 :** {mention}\n\n"
-   # xxx += f"**» 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 :** {username}\n\n"
+    xxx += f"**» 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 :** {username}\n\n"
     xxx += f"**» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 :** {phone_number}\n\n"
     await xemishra.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
     if telethon:
