@@ -1,9 +1,9 @@
 import time
 import config
 import logging
-import pyrogram
+from pyrogram import Client
 from datetime import datetime
-from pyromod import Client
+import pyromod
 from pyrogram.enums import ParseMode
 
 # logging 
