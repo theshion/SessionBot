@@ -15,7 +15,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN", "7704610461:AAEvZFvYAjIKL8-8736mDS8zC-ZZJTSOI
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb+srv://xzcshion:Kalpit666@cluster0.okntwly.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0") # get it from mongodb.com and fill here.
 
 #Owner
-LOGGER_ID = int(os.getenv("LOGGER_ID", "-1002391320301")) # get it by creating a logs group on telegram.
+LOGGER_ID = int(os.getenv("LOGGER_ID", "7644065212")) # get it by creating a logs group on telegram.
 OWNER_ID = int(os.getenv("OWNER_ID", "7050270303")) # flll here your bot owner telegram account id.
 
 #Extra 
