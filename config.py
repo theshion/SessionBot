@@ -9,7 +9,7 @@ API_ID = int(os.getenv("API_ID", "28102624")) # get it from my.telegram.org and 
 API_HASH = os.getenv("API_HASH", "4e03913f9a576278ed4dbcdf7073e1b0") # get it from my.telegram.org and fill here.
 
 #Tokens
-BOT_TOKEN = os.getenv("BOT_TOKEN", "7939164806:AAFM_IcYWxPqVVbKGbdlEThnXLQ4qHS1AYA") # get it from @BotFather on telegram by creating a new bot and fill here that bot token.
+BOT_TOKEN = os.getenv("BOT_TOKEN", "7704610461:AAEvZFvYAjIKL8-8736mDS8zC-ZZJTSOI1Q") # get it from @BotFather on telegram by creating a new bot and fill here that bot token.
 
 #Database
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb+srv://xzcshion:Kalpit666@cluster0.okntwly.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0") # get it from mongodb.com and fill here.
