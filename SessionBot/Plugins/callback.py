@@ -12,7 +12,7 @@ async def cb_choose(_, cq: CallbackQuery):
     query = cq.matches[0].group(1)
     if query == "gensession":
         return await cq.message.reply_text(
-            text="<b>» 𝖢𝗅𝗂𝖼𝗄 𝖮𝗇 𝖳𝗁𝖾 𝖡𝗎𝗍𝗍𝗈𝗇𝗌 𝖡𝖾𝗅𝗈𝗐 𝖥𝗈𝗋 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖸𝗈𝗎𝗋 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 :</b>",
+            text="» 𝖢𝗅𝗂𝖼𝗄 𝖮𝗇 𝖳𝗁𝖾 𝖡𝗎𝗍𝗍𝗈𝗇𝗌 𝖡𝖾𝗅𝗈𝗐 𝖥𝗈𝗋 𝖦𝖾𝗇𝖾𝗋𝖺𝗍𝗂𝗇𝗀 𝖸𝗈𝗎𝗋 𝖲𝖾𝗌𝗌𝗂𝗈𝗇 :",
             reply_markup=gen_key,
         )
     elif query.startswith("pyrogram") or query.startswith("telethon"):
