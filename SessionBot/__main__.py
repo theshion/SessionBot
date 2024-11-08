@@ -18,4 +18,4 @@ async def install():
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(install())
-    LOGGER.info("Stopping Session Bot...")
+    print("Stopping Session Bot... Bye Bye...")
